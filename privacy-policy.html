@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Chính sách quyền riêng tư của HTPlay: dữ liệu tài khoản, lưu trữ trên thiết bị, quyền thông báo và lựa chọn của bạn.">
+  <meta name="referrer" content="no-referrer">
+  <title>Chính sách quyền riêng tư | HTPlay</title>
+  <!-- Trước khi công bố: thay [TEN_NHA_PHAT_TRIEN], [EMAIL_HO_TRO] và xác nhận quy trình xóa tài khoản. -->
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f6f4f1;
+      --surface: #fff;
+      --text: #242326;
+      --muted: #62606a;
+      --accent: #7a1e1e;
+      --soft: #f8eded;
+      --line: #e5dfda;
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-padding-top: 24px; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.8 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-text-size-adjust: 100%;
+    }
+    a { color: var(--accent); text-underline-offset: 4px; overflow-wrap: anywhere; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; border-radius: 3px; }
+    .skip { position: absolute; left: 16px; top: -100px; padding: 10px 16px; background: var(--surface); z-index: 2; }
+    .skip:focus { top: 12px; }
+    .container { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }
+    .topbar { border-bottom: 1px solid var(--line); }
+    .topbar .container { min-height: 80px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 11px; font-size: 23px; font-weight: 800; letter-spacing: -.7px; }
+    .brand-mark { display: grid; place-items: center; width: 36px; height: 36px; background: var(--accent); color: var(--surface); border-radius: 11px; }
+    .brand-mark svg { width: 18px; height: 18px; fill: currentColor; }
+    .top-label { color: var(--muted); font-size: 13px; }
+    .hero { padding-block: 66px 40px; max-width: 780px; }
+    .eyebrow { margin: 0 0 12px; color: var(--accent); font-size: 12px; font-weight: 750; letter-spacing: 2px; text-transform: uppercase; }
+    h1 { margin: 0 0 18px; font-size: clamp(32px, 5vw, 52px); line-height: 1.2; letter-spacing: -1.7px; text-wrap: balance; }
+    .intro { margin: 0 0 20px; max-width: 650px; color: var(--muted); font-size: 18px; }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 13px; color: var(--muted); }
+    .layout { display: grid; grid-template-columns: 235px minmax(0, 1fr); gap: 48px; align-items: start; padding-bottom: 64px; }
+    .toc { position: sticky; top: 24px; }
+    .toc h2 { margin: 0 0 14px; font-size: 12px; letter-spacing: 1.6px; text-transform: uppercase; color: var(--muted); }
+    .toc ol { list-style: none; margin: 0; padding: 0; counter-reset: contents; }
+    .toc li { counter-increment: contents; }
+    .toc a { display: flex; gap: 12px; padding: 8px 0; color: var(--muted); font-size: 14px; line-height: 1.5; text-decoration: none; }
+    .toc a::before { content: counter(contents, decimal-leading-zero); color: var(--accent); font-size: 12px; padding-top: 2px; }
+    .toc a:hover { color: var(--accent); text-decoration: underline; }
+    article { min-width: 0; padding: 32px 40px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+    .summary { padding: 20px 24px; margin: 0 0 30px; border-left: 3px solid var(--accent); background: var(--soft); border-radius: 0 10px 10px 0; }
+    .summary strong { display: block; margin-bottom: 6px; }
+    .summary p { margin: 0; font-size: 15px; }
+    section + section { margin-top: 32px; padding-top: 26px; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; font-size: 22px; line-height: 1.4; letter-spacing: -.4px; text-wrap: balance; }
+    h3 { margin: 22px 0 8px; font-size: 16px; }
+    p { margin: 0 0 14px; }
+    p:last-child { margin-bottom: 0; }
+    ul, ol { padding-left: 22px; margin: 12px 0; }
+    li + li { margin-top: 8px; }
+    .note { color: var(--muted); font-size: 14px; }
+    .data-list { margin: 18px 0; }
+    .data-list div { padding: 16px 0; border-bottom: 1px solid var(--line); }
+    .data-list div:first-child { padding-top: 0; }
+    .data-list dt { font-weight: 700; margin-bottom: 4px; }
+    .data-list dd { margin: 0; color: var(--muted); font-size: 15px; }
+    .contact { padding: 20px 24px; background: var(--soft); border: 1px solid var(--line); border-radius: 12px; }
+    .placeholder { font-weight: 700; overflow-wrap: anywhere; }
+    footer { border-top: 1px solid var(--line); padding-block: 24px; color: var(--muted); font-size: 13px; }
+    footer .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    @media (max-width: 850px) {
+      .layout { grid-template-columns: 1fr; gap: 26px; }
+      .toc { position: static; }
+      .toc ol { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px; }
+      .hero { padding-top: 44px; }
+    }
+    @media (max-width: 520px) {
+      .container { width: calc(100% - 32px); }
+      .topbar .container { min-height: 68px; }
+      .top-label { max-width: 110px; text-align: right; line-height: 1.5; }
+      .hero { padding-block: 34px 28px; }
+      h1 { letter-spacing: -1px; }
+      .intro { font-size: 16px; }
+      .toc ol { grid-template-columns: 1fr; }
+      article { padding: 24px 20px; border-radius: 14px; }
+      h2 { font-size: 20px; }
+      .summary, .contact { padding: 16px; }
+      .layout { padding-bottom: 36px; }
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: dark;
+        --bg: #171719;
+        --surface: #202023;
+        --text: #f1eef0;
+        --muted: #b9b4bd;
+        --accent: #efaaaa;
+        --soft: #322326;
+        --line: #3c363b;
+      }
+      .brand-mark { background: #7a1e1e; color: #fff; }
+    }
+    @media print {
+      :root { color-scheme: light; --bg: #fff; --surface: #fff; --text: #111; --muted: #444; --accent: #7a1e1e; --soft: #fff; --line: #ccc; }
+      .toc, .skip, .top-label, footer a { display: none; }
+      .container { width: 100%; }
+      .hero { padding-block: 24px; }
+      .layout { display: block; }
+      article { border: 0; padding: 0; }
+      h2, h3 { break-after: avoid; }
+      .contact, .summary { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#noi-dung">Chuyển đến nội dung chính</a>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand" aria-label="HTPlay">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5a1 1 0 0 1 1.5-.86l12 7.5a1 1 0 0 1 0 1.72l-12 7.5A1 1 0 0 1 7 19.5z"/></svg></span>
+        HTPlay
+      </div>
+      <span class="top-label">Quyền riêng tư của bạn</span>
+    </div>
+  </header>
+
+  <main id="noi-dung" class="container">
+    <div class="hero">
+      <p class="eyebrow">Privacy Policy</p>
+      <h1>Chính sách quyền riêng tư</h1>
+      <p class="intro">Tìm hiểu HTPlay xử lý dữ liệu nào, vì sao cần dữ liệu đó và cách bạn quản lý thông tin của mình.</p>
+      <div class="meta">
+        <span>Cập nhật: <time datetime="2026-11-16">16 tháng 11, 2026</time></span>
+        <span>Ứng dụng Android · HTPlay</span>
+      </div>
+    </div>
+
+    <div class="layout">
+      <nav class="toc" aria-label="Mục lục chính sách">
+        <h2>Trong trang này</h2>
+        <ol>
+          <li><a href="#gioi-thieu">Phạm vi áp dụng</a></li>
+          <li><a href="#du-lieu">Dữ liệu được xử lý</a></li>
+          <li><a href="#muc-dich">Mục đích sử dụng</a></li>
+          <li><a href="#quyen">Quyền trên thiết bị</a></li>
+          <li><a href="#ben-thu-ba">Dịch vụ bên thứ ba</a></li>
+          <li><a href="#luu-tru">Lưu trữ và bảo mật</a></li>
+          <li><a href="#lua-chon">Quản lý và xóa dữ liệu</a></li>
+          <li><a href="#tre-em">Quyền riêng tư của trẻ em</a></li>
+          <li><a href="#thay-doi">Thay đổi chính sách</a></li>
+          <li><a href="#lien-he">Liên hệ</a></li>
+        </ol>
+      </nav>
+
+      <article aria-label="Nội dung chính sách quyền riêng tư">
+        <aside class="summary" aria-label="Thông tin chính">
+          <strong>Những điều bạn cần biết</strong>
+          <p>HTPlay sử dụng dịch vụ xác thực để đăng nhập. Thể loại yêu thích có thể được lưu theo tài khoản; danh sách phim yêu thích, tiến độ xem và bản tải xuống được lưu trên thiết bị. Khi tải hoặc xem nội dung trực tuyến, ứng dụng cần kết nối với nhà cung cấp nội dung.</p>
+        </aside>
+
+        <section id="gioi-thieu">
+          <h2>01. Phạm vi áp dụng</h2>
+          <p>Chính sách này mô tả việc xử lý dữ liệu trong HTPlay, ứng dụng xem và tải phim trên Android có mã ứng dụng <b>com.htdev.movie.htplay</b>, do <span class="placeholder">[TEN_NHA_PHAT_TRIEN]</span> phát triển và vận hành.</p>
+          <p>Chính sách áp dụng cho các tính năng của HTPlay. Các trang web, trình phát nhúng và dịch vụ bên ngoài được sử dụng trong ứng dụng có chính sách riêng, được nêu tại mục 05.</p>
+        </section>
+
+        <section id="du-lieu">
+          <h2>02. Dữ liệu được xử lý</h2>
+          <dl class="data-list">
+            <div>
+              <dt>Thông tin đăng nhập và tài khoản</dt>
+              <dd>Khi đăng ký hoặc đăng nhập bằng email và mật khẩu, thông tin được gửi đến Firebase Authentication để xác thực. Khi đăng nhập Google, thông tin định danh và mã xác thực do Google cung cấp được dùng để tạo phiên đăng nhập Firebase. HTPlay sử dụng email và mã người dùng (UID) để nhận diện tài khoản. Chế độ khách cũng sử dụng một UID ẩn danh do Firebase tạo.</dd>
+            </div>
+            <div>
+              <dt>Thể loại yêu thích</dt>
+              <dd>Các thể loại bạn chọn được lưu trong Cloud Firestore cùng UID để sử dụng lại theo tài khoản và hỗ trợ gợi ý nội dung.</dd>
+            </div>
+            <div>
+              <dt>Dữ liệu sử dụng lưu trên thiết bị</dt>
+              <dd>Bao gồm danh sách phim yêu thích, phim đang xem, tập phim và vị trí phát; lựa chọn ngôn ngữ, tự chuyển tập, trình phát thu nhỏ, thông báo và một số trạng thái giao diện. Các dữ liệu này được lưu trong cơ sở dữ liệu hoặc vùng cài đặt riêng của ứng dụng.</dd>
+            </div>
+            <div>
+              <dt>Bản tải xuống và bộ nhớ đệm</dt>
+              <dd>HTPlay lưu nội dung tải xuống, tên phim, số tập, mã phim, địa chỉ poster, ảnh poster và tiến độ tải trong vùng lưu trữ của ứng dụng để hỗ trợ phát ngoại tuyến và hiển thị thư viện.</dd>
+            </div>
+            <div>
+              <dt>Yêu cầu mạng và dữ liệu kỹ thuật</dt>
+              <dd>Từ khóa tìm kiếm, bộ lọc, mã phim hoặc tập phim được gửi đến dịch vụ nội dung khi bạn sử dụng các chức năng tương ứng. Máy chủ nhận kết nối có thể xử lý địa chỉ IP, thông tin tác nhân người dùng, thời điểm và thông tin yêu cầu. Firebase cũng có thể xử lý dữ liệu kỹ thuật để vận hành xác thực và phòng chống lạm dụng.</dd>
+            </div>
+          </dl>
+          <p>HTPlay không yêu cầu quyền truy cập danh bạ, vị trí chính xác, camera hoặc micro cho các tính năng hiện tại.</p>
+        </section>
+
+        <section id="muc-dich">
+          <h2>03. Mục đích sử dụng dữ liệu</h2>
+          <ul>
+            <li>Tạo, xác thực và duy trì phiên đăng nhập; gửi email đặt lại mật khẩu khi bạn yêu cầu.</li>
+            <li>Hiển thị danh mục phim, kết quả tìm kiếm, chi tiết phim, poster và nội dung phát.</li>
+            <li>Gợi ý nội dung theo thể loại đã chọn và lưu các tùy chỉnh của bạn.</li>
+            <li>Khôi phục tiến độ xem, quản lý phim yêu thích và hỗ trợ xem ngoại tuyến.</li>
+            <li>Hiển thị thông báo tiến độ tải phim và duy trì tác vụ tải nền.</li>
+            <li>Vận hành dịch vụ, bảo vệ phiên đăng nhập và xử lý yêu cầu hỗ trợ.</li>
+          </ul>
+        </section>
+
+        <section id="quyen">
+          <h2>04. Quyền trên thiết bị</h2>
+          <h3>Kết nối Internet và trạng thái mạng</h3>
+          <p>Được dùng để đăng nhập, lấy thông tin phim, tải ảnh, phát video, tải phim và xác định khả năng kết nối.</p>
+          <h3>Thông báo</h3>
+          <p>Trên Android 13 trở lên, HTPlay xin quyền thông báo khi bạn bật tùy chọn này. Thông báo tải xuống có thể hiển thị tên phim, tập phim, poster và tiến độ tải. Bạn có thể thay đổi lựa chọn trong HTPlay hoặc cài đặt thông báo của Android.</p>
+          <p class="note">Tác vụ tải bằng dịch vụ tiền cảnh cần kèm thông báo theo cơ chế của Android. Tắt thông báo chi tiết trong HTPlay không đồng nghĩa với việc mọi thông báo hệ thống về tác vụ nền sẽ biến mất. Nội dung thông báo cũng có thể xuất hiện trên màn hình khóa tùy cài đặt thiết bị.</p>
+          <h3>Dịch vụ tiền cảnh và vùng lưu trữ riêng</h3>
+          <p>Dịch vụ tiền cảnh được dùng để thực hiện tải phim khi bạn rời màn hình ứng dụng. Phim và poster được lưu trong vùng dữ liệu của HTPlay; tính năng này không cần quyền truy cập toàn bộ tệp trên thiết bị.</p>
+        </section>
+
+        <section id="ben-thu-ba">
+          <h2>05. Dịch vụ bên thứ ba</h2>
+          <p>Một số dữ liệu được truyền tới các bên cung cấp dịch vụ khi cần cho tính năng bạn sử dụng:</p>
+          <ul>
+            <li><strong>Firebase Authentication và Google Sign-In:</strong> xử lý đăng nhập, phiên xác thực và khôi phục mật khẩu. <a href="https://firebase.google.com/support/privacy" rel="noreferrer">Quyền riêng tư và bảo mật Firebase</a>; <a href="https://policies.google.com/privacy" rel="noreferrer">Chính sách quyền riêng tư Google</a>.</li>
+            <li><strong>Cloud Firestore:</strong> lưu thể loại yêu thích gắn với tài khoản. Dữ liệu được xử lý theo cấu hình dự án và các điều khoản dịch vụ Firebase.</li>
+            <li><strong>Nhà cung cấp danh mục, ảnh và video:</strong> HTPlay gửi yêu cầu đến dịch vụ nội dung và máy chủ lưu trữ để tìm kiếm, hiển thị và phát phim. Các dịch vụ được cấu hình hiện tại gồm phimapi.com, phimimg.com và máy chủ video do nguồn nội dung trả về. Các bên này có thể tiếp nhận dữ liệu kết nối và yêu cầu tương ứng.</li>
+            <li><strong>YouTube:</strong> một số trailer được phát qua trình phát nhúng YouTube. Khi trình phát được tải hoặc hoạt động, YouTube có thể xử lý dữ liệu kết nối, cookie hoặc dữ liệu lưu trữ của trình phát theo <a href="https://policies.google.com/privacy" rel="noreferrer">chính sách Google</a> và <a href="https://www.youtube.com/t/terms" rel="noreferrer">Điều khoản dịch vụ YouTube</a>.</li>
+          </ul>
+          <p>HTPlay không gửi mật khẩu tài khoản của bạn trong các yêu cầu tìm kiếm hoặc phát phim. Việc xử lý dữ liệu bởi các nhà cung cấp ngoài HTPlay phụ thuộc vào dịch vụ và chính sách của họ.</p>
+        </section>
+
+        <section id="luu-tru">
+          <h2>06. Lưu trữ và bảo mật</h2>
+          <p>Dữ liệu trên thiết bị được giữ trong vùng dữ liệu riêng của HTPlay cho đến khi bạn xóa từng mục, xóa dữ liệu ứng dụng hoặc gỡ cài đặt. Bộ nhớ đệm có thể được thay thế hoặc dọn dẹp trong quá trình sử dụng. Một số dữ liệu có thể được Android sao lưu hoặc khôi phục tùy cài đặt thiết bị và tài khoản sao lưu.</p>
+          <p>Dữ liệu xác thực và thể loại được đồng bộ được giữ tại dịch vụ Firebase trong thời gian tài khoản còn tồn tại hoặc đến khi yêu cầu xóa được xử lý. Việc xóa khỏi bản sao lưu và hệ thống của nhà cung cấp tuân theo vòng đời dữ liệu của họ, nên có thể không xảy ra đồng thời với việc xóa khỏi hệ thống đang hoạt động.</p>
+          <p>Thông tin đăng nhập được xử lý qua dịch vụ xác thực; HTPlay không lưu mật khẩu dạng văn bản thuần trong cơ sở dữ liệu cục bộ của mình. Ứng dụng dùng kết nối HTTPS cho dịch vụ đăng nhập và các API được cấu hình. Mức bảo vệ của kết nối nội dung bên ngoài còn phụ thuộc địa chỉ do nhà cung cấp trả về.</p>
+          <p>Dịch vụ đám mây có thể xử lý dữ liệu ngoài quốc gia nơi bạn sinh sống. Vị trí xử lý phụ thuộc dịch vụ và cấu hình hạ tầng của nhà cung cấp. Không có phương thức truyền hoặc lưu trữ dữ liệu nào bảo đảm an toàn tuyệt đối.</p>
+        </section>
+
+        <section id="lua-chon">
+          <h2>07. Quản lý và xóa dữ liệu</h2>
+          <ul>
+            <li><strong>Phim yêu thích và lịch sử xem:</strong> xóa các mục bằng chức năng tương ứng trong ứng dụng khi có sẵn, hoặc xóa toàn bộ dữ liệu cục bộ trong cài đặt Android.</li>
+            <li><strong>Bản tải xuống:</strong> xóa phim tại mục Tải xuống để loại bỏ nội dung ngoại tuyến tương ứng.</li>
+            <li><strong>Thông báo và tùy chỉnh:</strong> thay đổi trong Cài đặt của HTPlay; quyền thông báo cũng có thể được thu hồi trong cài đặt Android.</li>
+            <li><strong>Đăng nhập Google:</strong> bạn có thể quản lý kết nối với ứng dụng trong cài đặt tài khoản Google. Thu hồi kết nối không tự động xóa dữ liệu tài khoản đã được lưu tại HTPlay/Firebase.</li>
+          </ul>
+          <h3>Yêu cầu xóa tài khoản và dữ liệu đám mây</h3>
+          <p>Gửi yêu cầu đến địa chỉ liên hệ ở mục 10 với tiêu đề <strong>“HTPlay — Yêu cầu xóa tài khoản”</strong>. Cho biết email dùng để đăng nhập; nếu dùng chế độ khách, hãy nêu rõ để được hướng dẫn xác minh tài khoản. Không gửi mật khẩu hoặc mã đăng nhập dùng một lần.</p>
+          <p>Yêu cầu xóa tài khoản bao gồm tài khoản xác thực và dữ liệu thể loại yêu thích liên quan được lưu trên đám mây. Việc xác minh có thể cần thiết để tránh xóa nhầm dữ liệu. Nếu có dữ liệu cần tiếp tục lưu vì nghĩa vụ pháp lý hoặc bảo vệ an toàn dịch vụ, lý do và phạm vi lưu giữ sẽ được thông báo khi xử lý yêu cầu.</p>
+          <p class="note">Đăng xuất, xóa dữ liệu ứng dụng hoặc gỡ cài đặt không tự động xóa tài khoản và dữ liệu đám mây. Ngược lại, yêu cầu xóa tài khoản không tự động dọn các bản sao dữ liệu cục bộ hoặc bản sao lưu do bạn quản lý.</p>
+        </section>
+
+        <section id="tre-em">
+          <h2>08. Quyền riêng tư của trẻ em</h2>
+          <p>HTPlay không được thiết kế để yêu cầu trẻ em cung cấp thông tin cá nhân riêng cho mục đích tiếp thị. Cha mẹ hoặc người giám hộ nên giám sát việc sử dụng ứng dụng và nội dung phù hợp độ tuổi. Nếu bạn cho rằng một trẻ em đã cung cấp dữ liệu cần được xem xét hoặc xóa, hãy liên hệ theo mục 10.</p>
+        </section>
+
+        <section id="thay-doi">
+          <h2>09. Thay đổi chính sách</h2>
+          <p>Chính sách có thể được cập nhật khi tính năng, nhà cung cấp hoặc cách xử lý dữ liệu thay đổi. Phiên bản mới sẽ được đăng tại trang này cùng ngày cập nhật. Những thay đổi cần thông báo hoặc sự đồng ý riêng sẽ được thực hiện qua phương thức phù hợp trong ứng dụng.</p>
+        </section>
+
+        <section id="lien-he">
+          <h2>10. Liên hệ</h2>
+          <p>Để hỏi về quyền riêng tư, yêu cầu truy cập, điều chỉnh hoặc xóa dữ liệu, vui lòng liên hệ:</p>
+          <div class="contact">
+            <p><strong>Ứng dụng:</strong> HTPlay<br>
+              <strong>Nhà phát triển:</strong> <span class="placeholder">[TEN_NHA_PHAT_TRIEN]</span><br>
+              <strong>Email hỗ trợ:</strong> <span class="placeholder">[EMAIL_HO_TRO]</span></p>
+            <p class="note">Khi liên hệ, chỉ cung cấp thông tin cần thiết để xác minh và xử lý yêu cầu. Không gửi mật khẩu hoặc mã xác thực.</p>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container"><span>HTPlay · Chính sách quyền riêng tư</span><a href="#noi-dung">Về đầu trang ↑</a></div>
+  </footer>
+</body>
+</html>
